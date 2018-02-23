@@ -20,11 +20,12 @@
   <sidebar class="four columns categories-sb">
     <card class="categories-card">
       <h4>Categories</h4>
-      <ul>
-        <li><a>KONKATSU</a></li>
-        <li><a>KOIKATSU</a></li>  
-        <li><a>GOURMET</a></li>
-      </ul>
+    <% @event_categories.each do |event_category| %>
+    <ul>
+      <!--<li><a href="/?category=<%= event_category.id %>"><%= event_category.name %></a></li>-->
+      <li><%= link_to event_category.name, {:controller => 'events', :action => 'index', :id => event_category.id} %></li>
+    </ul>
+    <% end %>
     </card>
     <card class="search-card">
       <h4>Search</h4>

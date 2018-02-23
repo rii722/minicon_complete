@@ -4,6 +4,7 @@ class Admin::EventsController < Admin::BaseController
   # GET /admin/events
   def index
     @events = Event.all
+    @event_categories = EventCategory.all
   end
   
   # GET /admin/events/1
