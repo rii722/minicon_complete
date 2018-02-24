@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # root 'controller_name#action_name'
   root 'events#index'
   get '/category/:id' => 'events#index'
+  get '/events/search' => 'events#index'
   
   resources :events, only: [:index] do
     resources :purchases, only: [:new, :create]

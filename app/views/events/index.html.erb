@@ -16,7 +16,8 @@
         </div>
       </card>
     <% end %>
-  </div>
+  <%= paginate(@events) %>
+  </div>  
   <sidebar class="four columns categories-sb">
     <card class="categories-card">
       <h4>Categories</h4>
@@ -29,8 +30,14 @@
     </card>
     <card class="search-card">
       <h4>Search</h4>
-      <input class="u-full-width" type="text">
-      <a class='button button-primary u-full-width'>Search</a>
+              <%= form_tag('/events/search', method: :get) do %>
+                <input class="u-full-width" name="keyword" placeholder="キーワードを入力" type="text" value=""><button class="button button-primary u-full-width" title="Search" type="submit"><i class="icon-search">Search</i></button></input>
+              <% end %>
+              <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+              </form>
     </card>
+    <div class= "new_event">
+      <h4><%= link_to 'Create New Event', new_admin_event_path %></h4>
+    </div>
   </sidebar>
 </div>
